@@ -66,3 +66,32 @@ Simplify the following academic text into a clear, short, and easy-to-read expla
 - Ensures **scalable and flexible explanations** without needing predefined cases.  
 
 ---
+
+
+## 🎯 One-Shot Prompting  
+
+In **LearnBot**, we use **One-Shot Prompting**, where the AI is given a **single example** before performing the task.  
+This helps guide the model with a reference while still keeping it generalizable.  
+
+
+### 🔹 One-Shot Prompt  
+
+**Prompt (with one example):**  
+
+Example Input:  
+
+    The mitochondria is known as the powerhouse of the cell because it generates energy in the form of ATP through cellular respiration.
+
+Example Expected Output:  
+
+    Mitochondria are parts of the cell that produce energy. That’s why they are called the powerhouse of the cell.
+
+Now simplify the following text:  
+
+    Photosynthesis is a process by which plants convert light energy into chemical energy that can later be released to fuel the organisms' activities.
+
+### 📌 Why One-Shot Prompting?
+
+- Provides **one guiding example** to set the response pattern.  
+- Ensures the AI generates **consistent, simplified outputs**.  
+- Reduces ambiguity compared to zero-shot prompting.  
