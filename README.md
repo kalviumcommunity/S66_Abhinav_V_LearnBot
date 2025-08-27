@@ -133,3 +133,45 @@ Photosynthesis is a process by which plants convert light energy into chemical e
 - Gives the AI **multiple reference examples** to guide the response.  
 - Helps in **complex explanations** where one example is not enough.  
 - Reduces errors and improves the **accuracy and consistency** of simplified outputs.  
+
+---
+
+## 🎯 Dynamic Prompting  
+
+In **LearnBot**, we use **Dynamic Prompting**, where the prompt is automatically adapted based on the **user’s input context** (e.g., subject, topic, or difficulty level).  
+This makes the system **flexible and personalized**, instead of relying on fixed instructions.  
+
+### 🔹 Dynamic Prompt Example  
+
+**Prompt Template:**  
+Simplify the following text related to **{{subject}}**.  
+Make the explanation **{{difficulty_level}}** and easy to understand.  
+
+**User Input (Generated Dynamically):**  
+Subject: Biology  
+
+Difficulty Level: Easy  
+
+Text:  
+Photosynthesis is a process by which plants convert light energy into chemical energy that can later be released to fuel the organisms' activities.
+
+
+### Example Execution  
+
+If the user provides the above input, the dynamically generated prompt becomes:  
+
+Text:-
+    Simplify the following text related to Biology.  
+    Make the explanation Easy and easy to understand.  
+
+Text: 
+        Photosynthesis is a process by which plants convert light energy into chemical energy that can later be released to fuel the organisms' activities.
+
+Expected Output:
+        Photosynthesis is how plants use sunlight to make food and store energy.
+
+### 📌 Why Dynamic Prompting?
+
+- Automatically adapts prompts to different subjects and difficulty levels.
+- Makes the system more personalized for students.
+- Reduces manual re-writing of prompts while ensuring consistent simplified explanations.
