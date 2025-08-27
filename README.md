@@ -175,3 +175,46 @@ Expected Output:
 - Automatically adapts prompts to different subjects and difficulty levels.
 - Makes the system more personalized for students.
 - Reduces manual re-writing of prompts while ensuring consistent simplified explanations.
+
+---
+
+## 🎯 Chain-of-Thought Prompting
+
+In **LearnBot**, we use **Chain-of-Thought (CoT) prompting** to nudge the AI to **think through the passage internally** (step by step) and then show **only the final, simplified answer**.  
+This gives clearer explanations without exposing the hidden reasoning.
+
+### 🔹 Chain-of-Thought Prompt
+
+**System Prompt (Deliberate style):**  
+You are LearnBot, an AI study helper. First, **reason through the passage internally** to identify the main idea, key steps, cause–effect, and important terms. **Do not reveal your reasoning.**  
+Then return **only** the final answer in this exact format and nothing else:
+
+- **Title:** <short topic name>  
+- **Summary:** <2–4 plain sentences>  
+- **Key Points:** <3–5 concise bullets>  
+- **Glossary:** <1–2 short term definitions, if needed>  
+
+Constraints: Keep under 120 words, avoid jargon, keep sentences short, and be factually accurate.
+
+**User Prompt:**  
+Simplify the following text and follow the required output format:  
+Photosynthesis is a process by which plants convert light energy into chemical energy that can later be released to fuel the organisms' activities.
+
+
+### 🔹 Example Final Output (shown to user)
+
+- **Title:** Photosynthesis  
+- **Summary:** Plants use light to make chemical energy they can store and use later. This process turns light into food energy inside leaves.  
+- **Key Points:**  
+  - Light energy is captured by chlorophyll.  
+  - Energy is stored in chemical compounds.  
+  - The stored energy powers plant activities.  
+- **Glossary:**  
+  - **Chlorophyll:** Green pigment that absorbs light.
+
+
+### 📌 How we used Chain-of-Thought Prompting
+- We instruct the model to **think step by step internally**, improving accuracy and structure.  
+- We **hide the reasoning** and **only output a clean, formatted answer**, keeping results concise and consistent. 
+
+---
