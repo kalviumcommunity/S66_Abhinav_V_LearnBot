@@ -95,3 +95,41 @@ Now simplify the following text:
 - Provides **one guiding example** to set the response pattern.  
 - Ensures the AI generates **consistent, simplified outputs**.  
 - Reduces ambiguity compared to zero-shot prompting.  
+
+---
+
+## 🎯 Multi-Shot Prompting  
+
+In **LearnBot**, we apply **Multi-Shot Prompting**, where the AI is provided with **multiple examples** before being asked to solve the real task.  
+This method ensures the AI clearly understands the **pattern, style, and expectations** of the simplified output.  
+
+
+### 🔹 Multi-Shot Prompt  
+
+**Prompt (with multiple examples):**  
+
+Example 1:  
+Input:  
+        The mitochondria is known as the powerhouse of the cell because it generates energy in the form of ATP through cellular respiration.
+
+Expected Output:  
+        Mitochondria are parts of the cell that make energy. That’s why they are called the powerhouse of the cell.
+
+
+Example 2:  
+Input:  
+        Water evaporates from the surface of oceans, lakes, and rivers, then condenses into clouds, and finally falls back as rain, completing the water cycle.
+
+Expected Output:  
+        Water turns into vapor, forms clouds, and falls back as rain. This is called the water cycle.
+
+Now simplify the following text:  
+
+Photosynthesis is a process by which plants convert light energy into chemical energy that can later be released to fuel the organisms' activities.
+
+
+### 📌 Why Multi-Shot Prompting?
+
+- Gives the AI **multiple reference examples** to guide the response.  
+- Helps in **complex explanations** where one example is not enough.  
+- Reduces errors and improves the **accuracy and consistency** of simplified outputs.  
