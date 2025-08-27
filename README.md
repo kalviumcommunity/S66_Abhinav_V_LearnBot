@@ -227,10 +227,9 @@ It includes:
 - ✅ A **judge prompt** with clear evaluation parameters  
 - ✅ A simple **testing framework** to run all cases automatically  
 
----
 
 ### 📂 Evaluation Dataset (5 Samples)  
-
+```json
 [
   {
     "id": 1,
@@ -258,7 +257,7 @@ It includes:
     "expected": "8"
   }
 ]
-
+```
 ### 🧑‍⚖️ Judge Prompt
 You are a strict evaluator. Compare the AI's answer with the expected result.
 
@@ -284,3 +283,42 @@ for test in dataset:
 - Automation: All 5+ samples are tested in one go.
 - Reproducibility: New models can be tested with the same dataset.
 - Reliability: Gives clear ✅ Pass / ❌ Fail results for improvement tracking.
+
+---
+
+## 🔡 Tokens & Tokenization (LearnBot)  
+
+To make **LearnBot** efficient, we also **track tokens** after every AI call.  
+
+
+### 📝 What are Tokens?  
+- A **token** is like a small piece of text (a word, part of a word, or punctuation).  
+- Example: `"Learning is fun!"` → might be split into tokens like:  
+    ["Learning", " is", " fun", "!"]
+
+- The AI processes **tokens, not whole sentences**.  
+- Fewer tokens = faster response + lower cost.  
+
+
+### ⚙️ Implementation in LearnBot  
+After each AI request, we **log the number of tokens used** in the console/terminal.  
+
+```python
+response = run_model(user_input)
+print("AI Response:", response["text"])
+print("🔢 Tokens used:", response["usage"]["total_tokens"])
+```
+### ✅ Why This Helps?
+Efficiency → Track how much text LearnBot is processing.
+
+Cost Control → Token usage directly affects API cost.
+
+Debugging → Helps optimize prompts and avoid unnecessary long responses.
+
+### 📊 Sample Log Output
+User Input: What is photosynthesis?
+AI Response: Photosynthesis is the process by which plants make food using sunlight.
+🔢 Tokens used: 24
+
+
+---
