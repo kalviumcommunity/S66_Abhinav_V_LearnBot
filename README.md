@@ -218,3 +218,69 @@ Photosynthesis is a process by which plants convert light energy into chemical e
 - We **hide the reasoning** and **only output a clean, formatted answer**, keeping results concise and consistent. 
 
 ---
+
+## 🧪 Evaluation Dataset & Testing Framework  
+
+To measure if **LearnBot** is performing correctly, we built a structured **evaluation pipeline**.  
+It includes:  
+- ✅ A dataset of at least **5 study Q&A samples**  
+- ✅ A **judge prompt** with clear evaluation parameters  
+- ✅ A simple **testing framework** to run all cases automatically  
+
+---
+
+### 📂 Evaluation Dataset (5 Samples)  
+
+[
+  {
+    "id": 1,
+    "question": "What is photosynthesis?",
+    "expected": "Photosynthesis is the process by which plants make food using sunlight, water, and carbon dioxide, producing oxygen as a byproduct."
+  },
+  {
+    "id": 2,
+    "question": "Explain Newton's first law of motion.",
+    "expected": "An object at rest stays at rest and an object in motion stays in motion at the same speed and direction unless acted upon by an external force."
+  },
+  {
+    "id": 3,
+    "question": "Differentiate between mitosis and meiosis.",
+    "expected": "Mitosis produces two identical cells for growth/repair, while meiosis produces four genetically different gametes for reproduction."
+  },
+  {
+    "id": 4,
+    "question": "What is the capital of France?",
+    "expected": "Paris."
+  },
+  {
+    "id": 5,
+    "question": "Solve: 12 ÷ 3 × 2",
+    "expected": "8"
+  }
+]
+
+### 🧑‍⚖️ Judge Prompt
+You are a strict evaluator. Compare the AI's answer with the expected result.
+
+Evaluation Parameters:  
+1. Correctness – Did the AI give the right answer?  
+2. Completeness – Is the answer fully addressing the question?  
+3. Clarity – Is the explanation simple and easy to understand?  
+4. Conciseness – Is it short and to the point (no unnecessary info)?  
+
+Return only: Pass / Fail with a one-sentence justification.
+
+### ⚙️ Testing Framework
+We used a Python test runner to automate evaluation:
+
+for test in dataset:
+    ai_output = run_model(test["question"])          
+    verdict = judge(ai_output, test["expected"])   
+    print(f"Test {test['id']}: {verdict}")
+
+### ✅ Why This Setup?
+
+- Objectivity: The judge uses fixed rules (correctness, completeness, format, clarity).
+- Automation: All 5+ samples are tested in one go.
+- Reproducibility: New models can be tested with the same dataset.
+- Reliability: Gives clear ✅ Pass / ❌ Fail results for improvement tracking.
