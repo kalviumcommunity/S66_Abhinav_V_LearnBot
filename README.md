@@ -227,10 +227,10 @@ It includes:
 - ✅ A **judge prompt** with clear evaluation parameters  
 - ✅ A simple **testing framework** to run all cases automatically  
 
----
 
 ### 📂 Evaluation Dataset (5 Samples)  
 
+```json
 [
   {
     "id": 1,
@@ -258,6 +258,7 @@ It includes:
     "expected": "8"
   }
 ]
+```
 
 ### 🧑‍⚖️ Judge Prompt
 You are a strict evaluator. Compare the AI's answer with the expected result.
